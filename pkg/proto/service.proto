@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package storage;
+
+option go_package = "github.com/wawan93/grpc-memcached/pkg/proto";
+
+service Storage {
+  rpc Get (GetRequest) returns (GetResponse) {}
+  rpc Set (SetRequest) returns (SetResponse) {}
+  rpc Delete (DeleteRequest) returns (DeleteResponse) {}
+}
+
+message GetRequest {
+  string key = 1;
+}
+
+message GetResponse {
+  string body = 1;
+}
+
+message SetRequest {
+  string key = 1;
+  string body = 2;
+}
+
+message SetResponse {}
+
+message DeleteRequest {
+  string key = 1;
+}
+
+message DeleteResponse {}
