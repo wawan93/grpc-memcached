@@ -1,0 +1,7 @@
+grpc:
+  port: 8080
+
+memcached:
+  addr: 'memcached:11211'
+
+storage: 'memcached'

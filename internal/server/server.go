@@ -9,10 +9,10 @@ import (
 type Server struct {
 	proto.UnimplementedStorageServer
 
-	storage storage
+	storage Storage
 }
 
-func NewServer(storage storage) *Server {
+func NewServer(storage Storage) *Server {
 	return &Server{
 		storage: storage,
 	}

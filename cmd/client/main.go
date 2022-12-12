@@ -41,19 +41,19 @@ func main() {
 	case "get":
 		r, err := c.Get(ctx, &proto.GetRequest{Key: *key})
 		if err != nil {
-			log.Fatalf("could not greet: %v", err)
+			log.Fatalf("could not get: %v", err)
 		}
 		log.Printf("get response: %s", r.String())
 	case "set":
 		r, err := c.Set(ctx, &proto.SetRequest{Key: *key, Body: *value})
 		if err != nil {
-			log.Fatalf("could not greet: %v", err)
+			log.Fatalf("could not set: %v", err)
 		}
 		log.Printf("set response: %s", r.String())
 	case "delete":
 		r, err := c.Delete(ctx, &proto.DeleteRequest{Key: *key})
 		if err != nil {
-			log.Fatalf("could not greet: %v", err)
+			log.Fatalf("could not delete: %v", err)
 		}
 		log.Printf("delete response: %s", r.String())
 	}
