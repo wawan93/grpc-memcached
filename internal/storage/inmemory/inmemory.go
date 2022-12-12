@@ -4,6 +4,8 @@ import (
 	"context"
 	"fmt"
 	"sync"
+
+	"github.com/wawan93/grpc-memcached/pkg/errors"
 )
 
 type Storage struct {
@@ -25,7 +27,7 @@ func (s *Storage) Get(_ context.Context, key string) (string, error) {
 
 	value, ok := s.data[key]
 	if !ok {
-		return "", fmt.Errorf("key %s not found", key)
+		return "", fmt.Errorf("%w: %s", errors.ErrNotFound, key)
 	}
 
 	return value, nil
